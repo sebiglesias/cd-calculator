@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cdBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#cdBg)"/>
+  
+  <!-- Certificate Sheet -->
+  <rect x="110" y="100" width="292" height="312" rx="24" fill="#ffffff" filter="drop-shadow(0 14px 28px rgba(0,0,0,0.25))"/>
+  
+  <!-- Bank Columns / Certificate Heading -->
+  <rect x="140" y="130" width="232" height="16" rx="8" fill="#10b981"/>
+  <rect x="140" y="165" width="160" height="10" rx="5" fill="#cbd5e1"/>
+  <rect x="140" y="190" width="200" height="10" rx="5" fill="#cbd5e1"/>
+  <rect x="140" y="215" width="180" height="10" rx="5" fill="#cbd5e1"/>
+
+  <!-- Compound Graph Bars -->
+  <rect x="150" y="320" width="28" height="40" rx="6" fill="#a7f3d0"/>
+  <rect x="195" y="295" width="28" height="65" rx="6" fill="#6ee7b7"/>
+  <rect x="240" y="265" width="28" height="95" rx="6" fill="#34d399"/>
+  <rect x="285" y="230" width="28" height="130" rx="6" fill="#10b981"/>
+
+  <!-- Gold Seal / Badge -->
+  <circle cx="355" cy="355" r="65" fill="url(#goldRibbon)" stroke="#ffffff" stroke-width="8"/>
+  <text x="355" y="375" font-family="system-ui, -apple-system, sans-serif" font-size="55" font-weight="900" fill="#78350f" text-anchor="middle">%</text>
+</svg>

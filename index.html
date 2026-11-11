@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BNDBQP0W7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CD Calculator — Certificate of Deposit Interest & APY Growth</title>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#059669">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="description" content="Calculate your Certificate of Deposit (CD) returns, compounding interest, and maturity value based on annual percentage yield (APY) and term length.">
+  <meta name="keywords" content="cd calculator, certificate of deposit calculator, cd interest calculator, cd rate calculator, apy compound interest calculator, high yield cd rates">
+  <link rel="canonical" href="https://sebiglesias.com.ar/cd-calculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CD Calculator — Certificate of Deposit Interest & APY">
+  <meta property="og:description" content="Calculate your total earnings and ending balance on high-yield CDs with daily compounding.">
+  <meta property="og:url" content="https://sebiglesias.com.ar/cd-calculator/">
+  <meta property="og:site_name" content="CD Calculator">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CD Calculator — Certificate of Deposit APY">
+  <meta name="twitter:description" content="Calculate exact CD compound interest and maturity payouts.">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-3381238987477190">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Certificate of Deposit (CD) Calculator",
+    "url": "https://sebiglesias.com.ar/cd-calculator/",
+    "description": "Calculate interest income and total balance upon maturity for bank certificates of deposit.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Sebastián Iglesias",
+      "url": "https://sebiglesias.com.ar"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Certificate of Deposit (CD)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Certificate of Deposit (CD) is an FDIC-insured or NCUA-insured time deposit offered by banks and credit unions. You agree to lock your money away for a fixed term (such as 6 months to 5 years) in exchange for a guaranteed, fixed annual percentage yield (APY)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does compound interest work on a CD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most modern US online banks compound interest daily and credit it to your account monthly. This means the interest you earn each day begins earning interest itself the following day, compounding your overall yield."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are CDs safe from loss?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. CDs held at FDIC-member banks or NCUA-insured credit unions are federally backed up to $250,000 per depositor, per insured institution, ensuring complete safety of your principal and earned interest."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="https://sebiglesias.com.ar/" class="back-link">
+        ← Back to sebiglesias.com.ar
+      </a>
+      <span style="font-size: 0.8rem; color: #64748b;">FDIC/NCUA Compounding Model</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="header">
+      <div class="badge-tag">🏦 High-Yield Savings & Banking</div>
+      <h1 class="title">CD Calculator</h1>
+      <p class="subtitle">Compute your Certificate of Deposit earnings, daily compounding interest, and total maturity payout.</p>
+    </section>
+
+    <!-- Inputs Card -->
+    <section class="card" aria-label="Deposit inputs">
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="input-deposit" class="form-label">Initial Deposit Amount</label>
+          <div class="input-with-symbol">
+            <span class="input-symbol-prefix">$</span>
+            <input type="number" id="input-deposit" class="form-input" min="100" step="500" value="10000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input-apy" class="form-label">Annual Percentage Yield (APY %)</label>
+          <div class="input-with-symbol">
+            <input type="number" id="input-apy" class="form-input has-suffix" min="0.1" max="25" step="0.05" value="5.10">
+            <span class="input-symbol-suffix">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Term Length</label>
+        <div class="term-chips" role="group" aria-label="Quick term presets">
+          <button type="button" class="term-chip" data-months="3">3 Months</button>
+          <button type="button" class="term-chip" data-months="6">6 Months</button>
+          <button type="button" class="term-chip active" data-months="12">1 Year (12 Mo)</button>
+          <button type="button" class="term-chip" data-months="18">18 Months</button>
+          <button type="button" class="term-chip" data-months="24">2 Years</button>
+          <button type="button" class="term-chip" data-months="36">3 Years</button>
+          <button type="button" class="term-chip" data-months="60">5 Years</button>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 1rem;">
+        <div class="form-group">
+          <label for="input-term-custom" class="form-label">Custom Term (Months)</label>
+          <input type="number" id="input-term-custom" class="form-input" min="1" max="120" value="12">
+        </div>
+
+        <div class="form-group">
+          <label for="select-compound" class="form-label">Compounding Frequency</label>
+          <select id="select-compound" class="form-select">
+            <option value="365" selected>Daily (Most US Banks & HYSA)</option>
+            <option value="12">Monthly</option>
+            <option value="4">Quarterly</option>
+            <option value="1">Annually</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Results Hero -->
+    <section class="result-hero" aria-live="polite">
+      <div class="hero-pill">📈 TOTAL INTEREST EARNED</div>
+      <div class="hero-interest-title">You will earn a guaranteed:</div>
+      <div id="hero-interest" class="hero-interest-amount">$510.00</div>
+      <div id="hero-balance" class="hero-ending-balance">Maturity Total: $10,510.00</div>
+
+      <div class="hero-meta-grid">
+        <div class="meta-box">
+          <span class="label">Initial Deposit</span>
+          <span id="res-deposit" class="value">$10,000</span>
+        </div>
+        <div class="meta-box">
+          <span class="label">Interest Rate</span>
+          <span id="res-apy" class="value">5.10% APY</span>
+        </div>
+        <div class="meta-box">
+          <span class="label">Term</span>
+          <span id="res-term" class="value">12 Months</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benchmark CD Terms Table -->
+    <section class="card">
+      <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.35rem;">
+        Earnings Across Popular CD Terms
+      </h2>
+      <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0.75rem;">
+        Click any row to instantly compare payouts on your deposit:
+      </p>
+
+      <table class="benchmark-table">
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>APY</th>
+            <th>Interest Earned</th>
+            <th>Total at Maturity</th>
+          </tr>
+        </thead>
+        <tbody id="benchmark-tbody">
+          <!-- Populated via JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Ad Container -->
+    <div class="ad-slot-container" style="margin: 32px auto 24px; padding: 16px; max-width: 728px; background: rgba(125,125,125,0.05); border: 1px dashed rgba(125,125,125,0.2); border-radius: 8px; text-align: center; min-height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Advertisement</div>
+      <ins class="adsbygoogle"
+           style="display:block; width: 100%;"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions about CDs</h2>
+
+      <article class="faq-item">
+        <button type="button" class="faq-question">
+          <span>What is the difference between APR and APY?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          APR (Annual Percentage Rate) is the simple interest rate before compounding is considered. APY (Annual Percentage Yield) reflects the true annual return earned on your money when interest is compounded daily or monthly. APY is always slightly higher than APR.
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button type="button" class="faq-question">
+          <span>What is a CD Ladder strategy?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          A CD Ladder involves splitting your total savings across multiple CDs of varying maturities (e.g., 6 months, 1 year, 2 years, 3 years). As each CD matures, you can either cash out penalty-free or roll it into a new top-rate CD, providing regular liquidity while capturing higher long-term yields.
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button type="button" class="faq-question">
+          <span>What happens if I withdraw money before maturity?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          Most banks impose an early withdrawal penalty if you break a standard CD before its term ends—typically between 3 to 6 months of interest. However, your initial principal deposit is protected by law. No-penalty CDs allow penalty-free withdrawals at the cost of slightly lower APY.
+        </div>
+      </article>
+    </section>
+
+    <!-- Cross Sell Microapps -->
+    <section class="cross-sell">
+      <h3>More Financial Tools by Sebastián Iglesias</h3>
+      <div class="cross-grid">
+        <a href="https://sebiglesias.com.ar/mortgage-extra-payment/" class="cross-card">
+          <span class="cross-icon">🏡</span>
+          <div class="cross-info">
+            <strong>Mortgage Payoff</strong>
+            <span>Extra principal savings</span>
+          </div>
+        </a>
+        <a href="https://sebiglesias.com.ar/credit-card-payoff/" class="cross-card">
+          <span class="cross-icon">💳</span>
+          <div class="cross-info">
+            <strong>Credit Card Payoff</strong>
+            <span>Interest payoff calculator</span>
+          </div>
+        </a>
+        <a href="https://sebiglesias.com.ar/salary-to-hourly/" class="cross-card">
+          <span class="cross-icon">💵</span>
+          <div class="cross-info">
+            <strong>Salary to Hourly</strong>
+            <span>Wage and paycheck calculator</span>
+          </div>
+        </a>
+        <a href="https://sebiglesias.com.ar/plazo-fijo/" class="cross-card">
+          <span class="cross-icon">🇦🇷</span>
+          <div class="cross-info">
+            <strong>Simulador Plazo Fijo</strong>
+            <span>TNA bancos Argentina</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 CD Calculator — Built by <a href="https://sebiglesias.com.ar">Sebastián Iglesias</a>.</p>
+    <p style="margin-top: 0.25rem; font-size: 0.75rem;">Calculations are estimates for educational planning. Check official rate disclosures with your banking institution.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

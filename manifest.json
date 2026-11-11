@@ -1,0 +1,17 @@
+{
+  "name": "CD Calculator — Certificate of Deposit Compound Interest & APY",
+  "short_name": "CD Calculator",
+  "description": "Calculate your Certificate of Deposit earnings, compounding interest schedule, and maturity value based on bank APY rates.",
+  "start_url": "/cd-calculator/",
+  "display": "standalone",
+  "background_color": "#047857",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
